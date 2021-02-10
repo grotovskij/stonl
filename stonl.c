@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	FILE *target = fopen(argv[1], "r");
 	int counter;
 
-	if(argc < 1)
+	if(argc != 3)
 	{
 		printf("No arguments given.\nUsage: stonl <FILE> [NUMBER OF SPACES TO REPLACE]\n");
 		return 1;
@@ -32,7 +32,6 @@ int main(int argc, char* argv[])
 	if(target == NULL)
 	{
 		printf("No such file.\nUsage: stonl <FILE> [NUMBER OF SPACES TO REPLACE]\n");
-
 		return 1;
 	}
 
