@@ -18,25 +18,24 @@ int getFileSize(const char *fileName)
     return file_stat.st_size;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	FILE *target = fopen(argv[1], "r");
 	int counter;
 
 	if(argc != 3)
 	{
-		printf("No arguments given.\nUsage: stonl <FILE> [NUMBER OF SPACES TO REPLACE]\n");
+		printf("No arguments or too many arguments given.\nUsage: stonl <FILE> [NUMBER OF SPACES TO REPLACE].\n");
 		return 1;
 	}
 
 	if(target == NULL)
 	{
-		printf("No such file.\nUsage: stonl <FILE> [NUMBER OF SPACES TO REPLACE]\n");
+		printf("No such file.\nUsage: stonl <FILE> [NUMBER OF SPACES TO REPLACE].\n");
 		return 1;
 	}
 
 	int newStringsAmount = argc == 3 ? atoi(argv[2]) : 0;
-
 	char *fileContent = malloc(getFileSize(argv[1]));
 
 	for(counter = 0; counter < getFileSize(argv[1]); ++counter)
